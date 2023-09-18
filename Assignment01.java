@@ -141,9 +141,9 @@ public class Assignment01
     public static int calculateDayOfWeek(int day, int month, int year)
     {
         int dayOfWeek = -1;
-
-        // TODO IMPLEMENT
-
+        int y = year % 100;
+        int c = (year - (year % 100)) / 100;
+        dayOfWeek = ((13 * (month + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
         return dayOfWeek;
     }
 
