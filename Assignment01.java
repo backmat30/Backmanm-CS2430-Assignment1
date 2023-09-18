@@ -52,7 +52,18 @@ public class Assignment01
     {
         int gcd = -1;
 
-        // TODO IMPLEMENT
+        while(num1 != 0 && num2 != 0){
+            if(num1 > num2){
+                num1 %= num2;
+            } else{
+                num2 %= num1;
+            }
+        }
+        if(num1 == 0){
+            gcd = num2;
+        } else{
+            gcd = num1;
+        }
 
         return gcd;
     }
