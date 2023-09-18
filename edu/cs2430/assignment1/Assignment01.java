@@ -1,6 +1,12 @@
-
+package edu.cs2430.assignment1;
 import java.util.Scanner;
-
+/*
+ *Matthew Backman
+ * CS2430
+ * Started 9/17/2023
+ * Due 9/24/2023
+ * 1 hour of work
+ */
 public class Assignment01
 {
     /**
@@ -50,8 +56,8 @@ public class Assignment01
      */
     public static int calculateGCD(int num1, int num2)
     {
-        int gcd = -1;
-
+        int gcd;
+        //runs the algorithm as long as neither number is 0
         while(num1 != 0 && num2 != 0){
             if(num1 > num2){
                 num1 %= num2;
@@ -59,12 +65,13 @@ public class Assignment01
                 num2 %= num1;
             }
         }
+        //gcd is the number that *is not* 0, checks if a variable is 0 and assigns the other to GCD
         if(num1 == 0){
             gcd = num2;
         } else{
             gcd = num1;
         }
-
+        //returns GCD
         return gcd;
     }
 
@@ -140,10 +147,14 @@ public class Assignment01
      */
     public static int calculateDayOfWeek(int day, int month, int year)
     {
-        int dayOfWeek = -1;
+        int dayOfWeek;
+        //y is the first 2 digits of the year
         int y = year % 100;
+        //c is the last 2 digits of the year
         int c = (year - (year % 100)) / 100;
+        //uses formula stated above to calculate the day of the week
         dayOfWeek = ((13 * (month + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
+        //returns the day
         return dayOfWeek;
     }
 
@@ -177,8 +188,19 @@ public class Assignment01
     {
         boolean isPerfect = false;
 
-        // TODO IMPLEMENT
-
+        int sum = 0;
+        //runs through all integers up to half of the given number, since the biggest divisor is half of the number
+        for(int i = 1; i <= number/2; i++){
+            //if i is a divisor, adds it to the sum
+            if(number % i == 0){
+                sum += i;
+            }
+        }
+        //checks if the sum is a perfect number
+        if(sum == number){
+            isPerfect = true;
+        }
+        //returns true if the number is perfect
         return isPerfect;
     }
 
