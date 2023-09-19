@@ -150,10 +150,10 @@ public class Assignment01
         int dayOfWeek;
         int Y;
         int m;
-        //if month is jan. or feb., shifts month and sets year to -1, otherwise just uses the regular month and year
+        //if month is jan. or feb., shifts month and sets year to -1, otherwise just uses the regular month and
         if(month <= 2){
             m = month + 12;
-            Y = -1;
+            Y = year - 1;
         } else{
             m = month;
             Y = year;
@@ -161,9 +161,10 @@ public class Assignment01
         //y is the first 2 digits of the year
         int y = Y % 100;
         //c is the last 2 digits of the year
-        int c = (Y - (Y % 100)) / 100;
+        int c = Y  / 100;
         //uses formula stated above to calculate the day of the week
         dayOfWeek = ((13 * (m + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
+        System.out.print(dayOfWeek + " " + m + " " + Y + " " + y + " " + c);
         //returns the day
         return dayOfWeek;
     }
