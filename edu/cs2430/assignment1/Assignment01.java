@@ -164,7 +164,6 @@ public class Assignment01
         int c = Y  / 100;
         //uses formula stated above to calculate the day of the week
         dayOfWeek = ((13 * (m + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
-        System.out.print(dayOfWeek + " " + m + " " + Y + " " + y + " " + c);
         //returns the day
         return dayOfWeek;
     }
