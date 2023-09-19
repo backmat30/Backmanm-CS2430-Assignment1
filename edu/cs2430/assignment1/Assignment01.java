@@ -148,12 +148,22 @@ public class Assignment01
     public static int calculateDayOfWeek(int day, int month, int year)
     {
         int dayOfWeek;
+        int Y;
+        int m;
+        //if month is jan. or feb., shifts month and sets year to -1, otherwise just uses the regular month and year
+        if(month <= 2){
+            m = month + 12;
+            Y = -1;
+        } else{
+            m = month;
+            Y = year;
+        }
         //y is the first 2 digits of the year
-        int y = year % 100;
+        int y = Y % 100;
         //c is the last 2 digits of the year
-        int c = (year - (year % 100)) / 100;
+        int c = (Y - (Y % 100)) / 100;
         //uses formula stated above to calculate the day of the week
-        dayOfWeek = ((13 * (month + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
+        dayOfWeek = ((13 * (m + 1) / 5) + (y / 4) + (c / 4) + day + y - 2 * c) % 7;
         //returns the day
         return dayOfWeek;
     }
